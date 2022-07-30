@@ -1,5 +1,4 @@
 const { foundModel } = require('../models/report.model');
-const logger = require('../bin/winston.util');
 
 module.exports.getFoundItems = async (searchFields, selectedFields) => {
   try {
@@ -26,11 +25,7 @@ module.exports.getFoundItems = async (searchFields, selectedFields) => {
     ).select(selectedFields).lean().exec();
     return document;
   } catch (err) {
-    logger.error({
-      err: err.stack,
-      file: 'foundItems.service.js',
-      params: {},
-    });
+    console.log(err);
   }
 };
 
@@ -46,10 +41,6 @@ module.exports.checkClaimed = async (searchFields) => {
     ).lean().exec();
     return newEntry;
   } catch (error) {
-    logger.error({
-      err: error.stack,
-      file: 'foundItems.service.js',
-      params: {},
-    });
+    console.log(error);
   }
 };
