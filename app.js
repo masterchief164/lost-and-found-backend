@@ -16,6 +16,7 @@ app.use(express.urlencoded({
 app.use(express.json({ limit: '50mb' }));
 app.use(cors({
   credentials: true,
+  origin: "*"
 }));
 
 app.use('/', Router);
