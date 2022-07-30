@@ -31,11 +31,12 @@ const googleLogin = async (req, res) => {
     const userData = decodeToken(token);
     userData.exp = new Date(Date.now() + 1800000);
     // console.log('login');
-
+    console.log(process.env.NODE_ENV === 'production');
     res.status(202)
       .cookie('token', token, {
         expires: new Date(Date.now() + 1800000),
         httpOnly: true,
+        sameSite: 'none',
         secure: process.env.NODE_ENV === 'production',
       })
       .send({ userData });
