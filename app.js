@@ -14,7 +14,10 @@ app.use(express.urlencoded({
   extended: true,
 }));
 app.use(express.json({ limit: '50mb' }));
-app.use(cors());
+app.use(cors({
+  credentials: true,
+  origin: "104.28.247.81:3000"
+}));
 
 app.use('/', Router);
 
