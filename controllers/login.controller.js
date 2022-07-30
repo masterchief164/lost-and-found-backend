@@ -37,7 +37,7 @@ const googleLogin = async (req, res) => {
         expires: new Date(Date.now() + 1800000),
         httpOnly: true,
         sameSite: 'none',
-        domain: process.env.NODE_ENV === 'production' ? process.env.FRONTEND_URL : 'localhost',
+        // domain: process.env.NODE_ENV === 'production' ? process.env.FRONTEND_URL : 'localhost',
         secure: process.env.NODE_ENV === 'production',
       })
       .send({ userData });
