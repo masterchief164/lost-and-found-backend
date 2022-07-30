@@ -7,7 +7,7 @@ const debug = require('debug')('backend:server');
  * Get port from environment and store in Express.
  */
 
-const port = process.env.PORT || 8000;
+const port = 8000;
 
 /**
  * Create HTTP server.
