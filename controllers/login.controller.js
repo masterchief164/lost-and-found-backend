@@ -36,7 +36,7 @@ const googleLogin = async (req, res) => {
       .cookie('token', token, {
         expires: new Date(Date.now() + 1800000),
         httpOnly: true,
-        sameSite: 'None',
+        sameSite: 'none',
         secure: process.env.NODE_ENV === 'production',
       })
       .send({ userData });

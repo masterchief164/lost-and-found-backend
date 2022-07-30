@@ -9,10 +9,14 @@ const app = express();
 const Router = require('./routes/index.router');
 
 app.use(cookieParser());
+
 app.use(express.urlencoded({
   limit: '50mb',
   extended: true,
 }));
+
+app.enable('trust proxy');
+
 app.use(express.json({ limit: '50mb' }));
 app.use(cors({
   credentials: true,
