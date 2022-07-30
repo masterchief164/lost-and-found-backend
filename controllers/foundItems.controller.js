@@ -6,6 +6,7 @@ module.exports.getItems = async (req, res) => {
   try {
     const document = await getFoundItems(searchFields, getFoundItemsDTO.selectedFields);
     const data = document.map(getFoundItemsDTO.execute);
+    console.log("fetched items");
     res.send(data);
   } catch (err) {
     console.log(err);
