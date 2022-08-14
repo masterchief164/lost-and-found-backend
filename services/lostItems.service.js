@@ -18,12 +18,20 @@ module.exports.getAllLostItems = async (searchFields, selectedFields) => {
     if (searchFields.location === 'true' || checkTags) searchArray.push({ location: regexp });
     if (searchFields.username === 'true' || checkTags) searchArray.push({ firstName: regexp });
 
-    const document = await lostModel.find(
+    let count = 0;
+    if(searchFields.count)
+      count = searchFields.count;
+
+    return await lostModel.find(
       regexp ? {
         $or: searchArray,
       } : {},
-    ).select(selectedFields).lean().exec();
-    return document;
+    )
+      .select(selectedFields)
+      .limit(count)
+      .sort({dateTime:-1})
+      .lean()
+      .exec();
   } catch (err) {
     console.log(err);
   }

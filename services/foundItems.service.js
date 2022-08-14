@@ -18,12 +18,20 @@ module.exports.getFoundItems = async (searchFields, selectedFields) => {
     if (searchFields.location === 'true' || checkTags) searchArray.push({ location: regexp });
     if (searchFields.username === 'true' || checkTags) searchArray.push({ firstName: regexp });
 
-    const document = await foundModel.find(
+    let count  = 0;
+    if(searchFields.count)
+      count = searchFields.count;
+
+    return await foundModel.find(
       regexp ? {
         $or: searchArray,
       } : {},
-    ).select(selectedFields).lean().exec();
-    return document;
+    )
+      .select(selectedFields)
+      .limit(count)
+      .sort({ dateTime: -1 })
+      .lean()
+      .exec();
   } catch (err) {
     console.log(err);
   }
