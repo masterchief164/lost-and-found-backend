@@ -93,20 +93,13 @@ app.use(cors({
     origin: ["http://localhost:3000", "https://frontend-gamma-sage.vercel.app"]
 }));
 
-transporter.verify((error, success) => {
+transporter.verify((error) => {
     if (error) {
         console.log(error);
     } else {
         console.log('Server is ready to take messages');
     }
 });
-
-const mail_options = {
-    from: '20bec101@iiitdmj.ac.in',
-    to: '20bec101@iiitdmj.ac.in',
-    subject: 'Test',
-}
-
 
 app.use('/', Router);
 
