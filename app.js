@@ -75,8 +75,7 @@ app.get('/', function (req, res) {
         if (err)
             console.log(err);
         else
-            mail_options.html = data;
-        res.send(data);
+            res.send(data);
     });
 })
 
