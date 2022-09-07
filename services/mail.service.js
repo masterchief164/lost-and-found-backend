@@ -5,6 +5,7 @@ const OAuth2 = google.auth.OAuth2;
 module.exports.mailSenderService = async (mailOptions) => {
     try {
 
+        console.log("mail Requested");
         const oauth2Client = new OAuth2(
             process.env.CLIENT_ID1,
             process.env.CLIENT_SECRET1,
@@ -16,6 +17,7 @@ module.exports.mailSenderService = async (mailOptions) => {
         });
 
         const accessToken = await oauth2Client.getAccessToken();
+        console.log(accessToken);
 
         let transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
