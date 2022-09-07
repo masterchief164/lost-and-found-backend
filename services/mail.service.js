@@ -17,7 +17,6 @@ module.exports.mailSenderService = async (mailOptions) => {
         });
 
         const accessToken = await oauth2Client.getAccessToken();
-        console.log(accessToken.token);
 
         let transporter = nodemailer.createTransport({
             host: "smtp.gmail.com",
