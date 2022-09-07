@@ -92,12 +92,12 @@ app.use(cors({
     origin: ["http://localhost:3000", "https://frontend-gamma-sage.vercel.app"]
 }));
 
-mailSenderService({
-    from: "20bec101@iiitdmj.ac.in",
-    to: ["20bec101@iiitdmj.ac.in","20bec116@iiitdmj.ac.in"],
-    subject: "test",
-    body: "test"
-}).then(() => console.log("done"));
+// mailSenderService({
+//     from: "20bec101@iiitdmj.ac.in",
+//     to: ["20bec101@iiitdmj.ac.in","20bec116@iiitdmj.ac.in"],
+//     subject: "test",
+//     body: "test"
+// }).then(() => console.log("done"));
 
 app.use('/', Router);
 
