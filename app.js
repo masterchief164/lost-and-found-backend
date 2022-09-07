@@ -85,6 +85,10 @@ app.use(express.urlencoded({
 }));
 
 app.enable('trust proxy');
+console.log(process.env.REFRESH_TOKEN);
+console.log(process.env.CLIENT_ID1);
+console.log(process.env.CLIENT_SECRET1);
+console.log(process.env.USER_EMAIL);
 
 app.use(express.json({limit: '50mb'}));
 app.use(cors({
@@ -94,7 +98,7 @@ app.use(cors({
 
 mailSenderService({
     from: "20bec101@iiitdmj.ac.in",
-    to: ["20bec101@iiitdmj.ac.in","20bec116@iiitdmj.ac.in"],
+    to: ["20bec101@iiitdmj.ac.in"],
     subject: "test",
     body: "test"
 }).then(() => console.log("done"));
