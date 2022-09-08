@@ -5,7 +5,6 @@ const {getTodaysItems} = require("../services/getTodaysItems.service");
 const {getTodaysItemsDTO} = require("../dto/todaysItems.dto");
 
 const dailyUpdate = () => {
-    console.log(new Date());
     const job = CronJob.schedule('30 13 * * *', async () => {
         const mailOptions = {
             from: '20bec101@iiitdmj.ac.in',
