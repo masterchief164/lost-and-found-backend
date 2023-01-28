@@ -14,6 +14,7 @@ require('dotenv')
 const googleLogin = async (req, res) => {
   try {
     const code = req.body.tokenId;
+    console.log(code);
     const resp = await getGoogleOAuthTokens(code);
     // eslint-disable-next-line camelcase
     const { id_token } = resp.data;

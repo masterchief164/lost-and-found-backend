@@ -35,7 +35,7 @@ router.use(
 
 // routes
 router.use('/profile', profileRouter);
-router.use('/auth', authRouter);
+router.use('/login', authRouter);
 router.use('/report/form', ReportRouter);
 router.use('/lost', lostRouter);
 router.use('/found', foundRouter);

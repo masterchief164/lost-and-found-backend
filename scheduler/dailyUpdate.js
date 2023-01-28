@@ -5,10 +5,10 @@ const {getTodaysItems} = require("../services/getTodaysItems.service");
 const {getTodaysItemsDTO} = require("../dto/todaysItems.dto");
 
 const dailyUpdate = () => {
-    const job = CronJob.schedule('30 13 * * *', async () => {
+    const job = CronJob.schedule('30 33 18 * * *', async () => {
         const mailOptions = {
             from: '20bec101@iiitdmj.ac.in',
-            to: '20bec101@iiitdmj.ac.in',
+            to: process.env.DAILY_UPDATE_EMAIL,
             subject: 'Daily Update on Lost and Found Items',
         };
         const dir = __dirname.split('/');
